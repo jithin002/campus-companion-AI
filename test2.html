@@ -1,0 +1,110 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Companion Navigation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        #map { height: 80vh; }
+        #controls {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+        #loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 1.2em;
+            border-radius: 10px;
+            display: none;
+            z-index: 1000;
+        }
+        .navigation-panel {
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .directions-list {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;  
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <div class="location-selectors">
+            <label for="start-location">Start Location:</label>
+            <select id="start-location">
+                <option value="">Current Location</option>
+                <option value="main-entrance">Main Entrance</option>
+                <option value="canteen">Canteen</option>
+                <option value="library">Library</option>
+                <!-- Add more starting points -->
+            </select>
+<br>
+            <label for="destination">Destination:</label>
+            <select id="destination">
+                <option value="">--Choose Destination--</option>
+                <optgroup label="Buildings">
+                    <option value="library">Library</option>
+                    <option value="soe-block">soe-block</option>
+                    <option value="cdsimer">CDSIMER Block</option>
+                    <option value="mechanical block">mechanical block</option>
+                    <option value="CDSIMER staff Quarters">CDSIMER staff Quarters</option>
+                    <option value="P-block(psychiatry block)">P-block(psychiatry block)</option>
+                    <option value="collage of physiotherapy">collage of physiotherapy</option>
+                    <option value="nurses quarters">nurses quarters</option>
+                    <option value="girls hostel">girls hostel</option>
+                    <option value="boys hostel">boys hostel</option>
+                    <option value="emergency ward">emergency ward</option>
+                </optgroup>
+                <optgroup label="Amenities">
+                    <option value="cricket ground">cricket ground</option>
+                    <option value="footbal ground">footbal ground</option>
+                    <option value="basketball cort">basketball cort</option>
+                    <option value="arena">arena</option>
+                    <option value="lake view">lake view</option>
+                    <option value="car-parking">car-Parking</option>
+                    <option value="bike-parking">bike-Parking</option>
+                </optgroup>
+                <optgroup label="campus dining">
+                    <option value="tummy trails">tummy trails</option>
+                    <option value="food truck">food truck</option>
+                    <option value="Cafeteria">Cafeteria</option>
+                    <option value="grains and gossip">grains and gossip</option>
+                    <option value="canteen">canteen</option>
+                    <option value="hostel mess">hostel mess</option>
+                </optgroup>
+            </select>
+            <button id="voice-command-btn">Start Voice Commands</button>
+            
+            <div id="loader">Calculating route...</div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    
+    <div class="navigation-panel">
+        <h3>Navigation Instructions</h3>
+        <div class="directions-list" id="directions"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  
+    <script src="test22.js"></script>
+</body>
+</html>
